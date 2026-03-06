@@ -1,4 +1,4 @@
-export const alcoholTypes = 
+const alcoholList = 
 [
 // 🍺 Piva
   { id: "pivo_lehke", name: "Lehké pivo (10°)", abv: 0.04 },
@@ -42,10 +42,11 @@ export const alcoholTypes =
   { id: "jablkovice", name: "Jablkovice", abv: 0.45 },
   { id: "merunkovice", name: "Meruňkovice", abv: 0.45 },
 
+  
   // 🍀 Bylinné, „Zelená“ a podobně
   { id: "zelena", name: "Zelená", abv: 0.30 },
   { id: "becher_lemond", name: "Becherovka Lemond", abv: 0.20 }
 ]
 
-
+export default alcoholList;
 

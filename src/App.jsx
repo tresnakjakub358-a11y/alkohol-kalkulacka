@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './alcoholCalculator.css'
 import './App.css'
-import meter from './meter'
+import './components/alcoholCalculator.css'
+import Meter from './components/meter'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-  <></>
+    <div className="app">
+      <Meter />
+    </div>
   )
+
 }
 
 export default App
