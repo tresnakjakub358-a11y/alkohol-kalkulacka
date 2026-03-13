@@ -1,84 +1,182 @@
-body{
-    margin:0;
-    padding:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#121212;
-    color:white;
+/* ========================== */
+/* 🌌 Základ a hvězdné pozadí */
+/* ========================== */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #0d0f23, #0b0c1b 70%);
+  color: #ffffff;
+  overflow-x: hidden;
+  position: relative;
 }
 
-.container{
-    max-width:500px;
-    margin:50px auto;
-    padding:30px;
-    background:#1e1e1e;
-    border-radius:10px;
-    box-shadow:0 0 15px rgba(0,0,0,0.5);
+/* animované hvězdy */
+body::before {
+  content: '';
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: url('https://th.bing.com/th/id/R.68d350d1e5381a3ef988e4e20aee2c92?rik=Xnaz0m%2fbhsjdTQ&pid=ImgRaw&r=0') repeat;
+  opacity: 0.7;
+  z-index: 0;
+  animation: starsMove 400s linear infinite;
 }
 
-h1{
-    text-align:center;
-    margin-bottom:25px;
+@keyframes starsMove {
+  0% { background-position: 0 0; }
+  100% { background-position: -10000px -10000px; }
 }
 
-h2{
-    margin-top:25px;
+/* ========================== */
+/* 🌠 Kontejner kalkulačky */
+/* ========================== */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 650px;
+  margin: 60px auto;
+  padding: 50px;
+  background: rgba(10, 10, 35, 0.9);
+  border-radius: 25px;
+  box-shadow: 0 0 30px #00ffff77, 0 0 60px #ff00ff44, 0 0 90px #00ffff33 inset;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-label{
-    display:block;
-    margin-top:15px;
-    margin-bottom:5px;
-    font-size:14px;
+/* ========================== */
+/* 🌌 Nadpisy a texty */
+/* ========================== */
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff, 0 0 30px #00ffff77;
 }
 
-input, select{
-    width:100%;
-    padding:10px;
-    border:none;
-    border-radius:5px;
-    background:#2a2a2a;
-    color:white;
-    font-size:14px;
+h2, h3 {
+  margin-top: 30px;
+  color: #ff77ff;
+  text-shadow: 0 0 6px #ff77ff88, 0 0 12px #00ffff55;
 }
 
-input:focus, select:focus{
-    outline:none;
-    background:#333;
+/* Labely */
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #ffffffcc;
 }
 
-.drinkRow{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin:10px 0;
+/* ========================== */
+/* 🌠 Inputy a select */
+/* ========================== */
+input, select {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 16px;
+  box-shadow: inset 0 0 8px #00ffff33, inset 0 0 16px #ff00ff22;
+  transition: all 0.3s ease;
 }
 
-.drinkRow input{
-    width:80px;
+input:focus, select:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 16px #00ffff, 0 0 32px #ff00ff;
 }
 
-.resultBox{
-    margin-top:30px;
-    padding:20px;
-    text-align:center;
-    background:#2a2a2a;
-    border-radius:8px;
+/* ========================== */
+/* 🌌 Tlačítka */
+button {
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+  box-shadow: 0 0 15px #00ffff55, 0 0 30px #ff00ff55, 0 0 60px #00ffff33 inset;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
 }
 
-.resultValue{
-    font-size:40px;
-    font-weight:bold;
-    margin-top:10px;
+button:hover {
+  transform: scale(1.1) rotate(-1deg);
+  box-shadow: 0 0 25px #00ffffaa, 0 0 50px #ff00ffaa, 0 0 70px #00ffff55 inset;
 }
 
-.safe{
-    color:#4caf50;
+/* ========================== */
+/* 🌌 Přidané drinky */
+.drinkRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: inset 0 0 6px #00ffff33, inset 0 0 12px #ff00ff22;
+  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.warning{
-    color:#ff9800;
+.drinkRow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 12px #00ffff55, inset 0 0 20px #ff00ff33;
 }
 
-.danger{
-    color:#f44336;
+/* ========================== */
+/* 🌠 Výsledky */
+.resultBox {
+  margin-top: 35px;
+  padding: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  box-shadow: 0 0 25px #ff00ff44, 0 0 40px #00ffff44, 0 0 60px #00ffff22 inset;
+}
+
+.resultValue {
+  font-size: 60px;
+  font-weight: bold;
+  margin-top: 15px;
+  color: #00ffff;
+  text-shadow: 0 0 15px #00ffff, 0 0 30px #ff00ff;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #00ffff, 0 0 20px #ff00ff; }
+  100% { text-shadow: 0 0 25px #00ffff, 0 0 50px #ff00ff; }
+}
+
+.safe { color: #4caf50; }
+.warning { color: #ff9800; }
+.danger { color: #f44336; }
+
+/* ========================== */
+/* 🌌 Přidat drink tlačítko full-width */
+.addBtn {
+  display: inline-block;
+  width: 100%;
+}
+
+/* ========================== */
+/* 📱 Responsivita */
+@media(max-width: 650px) {
+  h1 { font-size: 2.5rem; }
+  .resultValue { font-size: 45px; }
+  button { padding: 12px 20px; font-size: 14px; }
 }
