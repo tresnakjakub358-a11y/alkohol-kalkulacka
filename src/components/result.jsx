@@ -45,7 +45,7 @@ const Result = ({ weight, gender, drinks, hours }) => {
       <p>
         Řídit můžete přibližně za{" "}
         <strong>
-          {hoursToDrive > 0 ? hoursToDrive.toFixed(2) : 0} hodin
+          {hoursToDrive > 0 ? hoursToDrive.toFixed(1) : 0} hodin
         </strong>
       </p>
 

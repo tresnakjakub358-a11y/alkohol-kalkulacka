@@ -44,7 +44,8 @@ const Meter = () => {
 
         <label>Kolik hodin piješ</label>
         <input
-          type="number"
+          type="number
+          "
           value={hours}
           onChange={(e) => setHours(Number(e.target.value))}
         />

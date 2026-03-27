@@ -5,7 +5,7 @@ const alcoholList = [
   { id: "pivo_stredni", name: "Střední pivo (12°)", abv: 0.05, volume: 0.5 },
   { id: "pivo_tmave", name: "Tmavé pivo", abv: 0.05, volume: 0.5 },
   { id: "pivo_specialni", name: "Speciální pivo", abv: 0.06, volume: 0.5 },
-  { id: "desperado", name: "Desperado", abv: 0.05, volume: 0.33 },
+  { id: "desperado", name: "Desperado", abv: 0.05, volume: 0.5 },
 
   // 🍷 Víno
   { id: "vino_bile", name: "Bílé víno", abv: 0.12, volume: 0.2 },
